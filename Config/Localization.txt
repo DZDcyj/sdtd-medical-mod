@@ -1,5 +1,6 @@
 Key,schinese
 statStopAbrasionMult,完全治愈擦伤
 statStopsSprain,治疗跌打损伤
-medicalRibonsanPanacea,丝氏老方
-medicalRibonsanPanaceaDesc,跌打损伤，一用就灵！
+medicalRibonsanPanacea,丝氏白药
+medicalRibonsanPanaceaDesc,跌打损伤，一用就灵！丝带包扎，上附有神必药物
+medicalT4-1,丝氏老方

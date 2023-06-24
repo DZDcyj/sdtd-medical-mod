@@ -10,7 +10,7 @@
 		<property name="DescriptionKey" value="medicalRibonsanPanaceaDesc"/>
 		<property name="Material" value="Mcloth"/>
 		<property name="Stacknumber" value="200"/>
-		<!-- <property name="Weight" value="10"/> -->
+		<property name="UnlockedBy" value="craftingMedical"/>
 		<property name="EconomicValue" value="600"/>
 		<property name="Group" value="Science,Medical,Basics,TCMedical"/>
 		<property class="Action0">
