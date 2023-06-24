@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configs>
+<append xpath="/items">
+	<item name="medicalRibonsanPanacea">
+		<property name="CustomIcon" value="medicalRibonsanPanacea"/>
+		<property name="DisplayType" value="medicalRibonsanPanacea"/>
+		<property name="HoldType" value="64"/>
+		<property name="Meshfile" value="@:Other/Items/Health/bandage.FBX"/>
+		<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+		<property name="DescriptionKey" value="medicalRibonsanPanaceaDesc"/>
+		<property name="Material" value="Mcloth"/>
+		<property name="Stacknumber" value="200"/>
+		<!-- <property name="Weight" value="10"/> -->
+		<property name="EconomicValue" value="600"/>
+		<property name="Group" value="Science,Medical,Basics,TCMedical"/>
+		<property class="Action0">
+			<property name="Class" value="Eat"/>
+			<property name="Delay" value="1.0"/>
+			<property name="Sound_start" value="player_bandage"/>
+		</property>
+		<effect_group tiered="false">
+			<!-- 流血、擦伤、扭伤，一用就灵 -->
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="medicalRegHealthAmount" operation="add" value="10"/>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="medRegHealthIncSpeed" operation="set" value="@medicRegHealthIncreaseSpeed"/>
+			<display_value name="foodHealthAmount" value="10"/>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffInjuryBleeding"/>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffInjuryAbrasion"/>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffLegSprained"/>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffArmSprained"/>
+			<display_value name="dStopAbrasionMult" value="1"/>
+			<display_value name="dStopsBleeding" value="1"/>
+			<display_value name="dStopsSprain" value="1"/>
+			<triggered_effect trigger="onSelfSecondaryActionEnd" action="GiveExp" exp="10"/>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
+		</effect_group>
+	</item>
+</append>
+</configs>
