@@ -22,4 +22,3 @@ jobs:
           ignore-files: 'README.md'
           ignore-directories: '.git'
           read-path: './Config'
-      

@@ -7,6 +7,6 @@
 		<display_entry name="dStopsBleeding" title_key="statStopsBleeding" display_type="Percent"/>
 		<display_entry name="dStopsSprain" title_key="statStopsSprain" display_type="Percent"/>
 	</item_display_info>
-</append>
+</set>
 
 </configs>
