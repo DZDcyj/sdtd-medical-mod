@@ -19,19 +19,26 @@
 			<property name="Sound_start" value="player_bandage"/>
 		</property>
 		<effect_group tiered="false">
-			<!-- 流血、擦伤、扭伤，一用就灵 -->
+			<!-- 回复生命值 -->
 			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="medicalRegHealthAmount" operation="add" value="10"/>
 			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="medRegHealthIncSpeed" operation="set" value="@medicRegHealthIncreaseSpeed"/>
+			<!-- 启动回复生命值进程，也即是添加一个 Buff -->
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
 			<display_value name="foodHealthAmount" value="10"/>
+			<!-- 流血、擦伤、扭伤，一用就灵 -->
+			<!-- 流血 -->
 			<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffInjuryBleeding"/>
+			<!-- 擦伤 -->
 			<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffInjuryAbrasion"/>
+			<!-- 已处理的擦伤 -->
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffInjuryAbrasionTreated"/>
+			<!-- 扭伤的腿/手臂 -->
 			<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffLegSprained"/>
 			<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffArmSprained"/>
 			<display_value name="dStopAbrasionMult" value="1"/>
 			<display_value name="dStopsBleeding" value="1"/>
 			<display_value name="dStopsSprain" value="1"/>
 			<triggered_effect trigger="onSelfSecondaryActionEnd" action="GiveExp" exp="10"/>
-			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
 		</effect_group>
 	</item>
 </append>
