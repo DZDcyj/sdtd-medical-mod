@@ -1,0 +1,15 @@
+<Rinkosanvsky>
+
+
+<append xpath="/progression/crafting_skills/crafting_skill[@name='craftingMedical']">
+	<display_entry icon="medicalRibonsanPanacea" name_key="medicalT4-1" has_quality="false" unlock_level="75">
+		<unlock_entry item="medicalRibonsanPanacea" unlock_tier="1" />
+	</display_entry>
+
+	<effect_group>
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" value="1" level="75,75" tags="medicalRibonsanPanacea"/>
+	</effect_group>
+</append>
+
+
+</Rinkosanvsky>
