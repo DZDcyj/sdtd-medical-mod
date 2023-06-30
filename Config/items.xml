@@ -46,6 +46,7 @@
 
 	<!-- 第一卷：维生素 -->
 	<item name="bookShainMedicalInstructionVitamin">
+	<property name="CustomIcon" value="bookMedicalJournal"/>
 	<property name="Extends" value="bookFiremansAlmanacHeat"/>
 	<property name="DescriptionKey" value="perkShainMedicalInstructionVitaminDesc"/>
 	<property name="Unlocks" value="perkShainMedicalInstructionVitamin"/>
