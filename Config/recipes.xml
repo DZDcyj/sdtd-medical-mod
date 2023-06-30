@@ -18,5 +18,29 @@
         <recipe name="drugVitamins" count="1" craft_area="chemistryStation" tags="learnable,chemStationCrafting">
             <ingredient name="foodCropBlueberries" count="1"/>
         </recipe>
+
+        <recipe name="drugVitamins" count="1" tags="learnable">
+            <ingredient name="foodCropYuccaFruit" count="5"/>
+        </recipe>
+
+        <recipe name="drugVitamins" count="1" craft_area="campfire" craft_tool="toolBeaker" tags="learnable">
+            <ingredient name="foodCropYuccaFruit" count="3"/>
+        </recipe>
+
+        <recipe name="drugVitamins" count="1" craft_area="chemistryStation" tags="learnable,chemStationCrafting">
+            <ingredient name="foodCropYuccaFruit" count="1"/>
+        </recipe>
+
+        <recipe name="drugVitamins" count="1" tags="learnable">
+            <ingredient name="foodCropPumpkin" count="5"/>
+        </recipe>
+
+        <recipe name="drugVitamins" count="1" craft_area="campfire" craft_tool="toolBeaker" tags="learnable">
+            <ingredient name="foodCropPumpkin" count="3"/>
+        </recipe>
+
+        <recipe name="drugVitamins" count="1" craft_area="chemistryStation" tags="learnable,chemStationCrafting">
+            <ingredient name="foodCropPumpkin" count="1"/>
+        </recipe>
     </append>
 </Rinsan>
