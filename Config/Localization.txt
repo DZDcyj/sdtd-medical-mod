@@ -3,4 +3,14 @@ statStopAbrasionMult,完全治愈擦伤
 statStopsSprain,治疗跌打损伤
 medicalRibonsanPanacea,丝氏白药
 medicalRibonsanPanaceaDesc,跌打损伤，一用就灵！丝带包扎，上附有神必药物
-medicalT4-1,丝氏老方
+medicalT4-1,第4级：丝氏老方
+
+perkShainMedicalInstruction0Name,社员医疗手记
+perkShainMedicalInstruction0Desc,备战备荒，把医疗卫生作为工作的重点！为了更好地在荒地生存，我结合以往知识能寻找到的各类资料，编写了这一本指导手册。这本指导手册应当能满足在各式情况下的医疗需求
+bookShainMedicalInstructionVitamin,社员医疗手记 第一卷
+perkShainMedicalInstructionVitaminDesc,从植物中提取必要的维生素
+perkShainMedicalInstructionVitaminLongDesc,维生素：维生素能够帮助你远离疲劳和疾病，我找到了能够从植物中提取这种物质的方法
+
+perkShainMedicalInstructionComplete,社员医疗手记 - 完成
+perkShainMedicalInstructionCompleteDesc,TODO：添加好处
+perkShainMedicalInstructionCompleteLongDesc,专业医师：TODO

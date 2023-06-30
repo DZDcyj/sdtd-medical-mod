@@ -41,5 +41,32 @@
 			<triggered_effect trigger="onSelfSecondaryActionEnd" action="GiveExp" exp="10"/>
 		</effect_group>
 	</item>
+
+	<!-- 社员医疗指导手册 -->
+
+	<!-- 第一卷：维生素 -->
+	<item name="bookShainMedicalInstructionVitamin">
+	<property name="CustomIcon" value="bookMedicalJournal"/>
+	<property name="Extends" value="bookFiremansAlmanacHeat"/>
+	<property name="DescriptionKey" value="perkShainMedicalInstructionVitaminDesc"/>
+	<property name="Unlocks" value="perkShainMedicalInstructionVitamin"/>
+	<effect_group tiered="false">
+		<requirement name="ProgressionLevel" progression_name="perkShainMedicalInstructionVitamin" operation="Equals" value="0"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="SetProgressionLevel" progression_name="perkShainMedicalInstructionVitamin" level="-1"/>
+			<!-- 以下为完全读完之后的效果 -->
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="SetProgressionLevel" progression_name="perkShainMedicalInstructionVitaminComplete" level="-1">
+			<requirement name="PerksUnlocked" skill_name="skillShainMedicalInstruction" operation="GTE" value="7"/></triggered_effect>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="PlaySound" sound="read_skillbook_final" play_in_head="true">
+			<requirement name="PerksUnlocked" skill_name="skillShainMedicalInstruction" operation="GTE" value="7"/></triggered_effect>
+	</effect_group>
+	<effect_group tiered="false">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+	</effect_group>
+</item>
 </append>
+
+<append xpath="/items/item[@name='drugVitamins']">
+	<property name="UnlockedBy" value="perkShainMedicalInstructionVitamin"/>
+</append>
+
 </configs>
