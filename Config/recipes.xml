@@ -6,5 +6,17 @@
             <ingredient name="medicalAloeCream" count="1"/>
             <ingredient name="foodCropBlueberries" count="1"/>
         </recipe>
+
+        <recipe name="drugVitamins" count="1" tags="learnable">
+            <ingredient name="foodCropBlueberries" count="5"/>
+        </recipe>
+
+        <recipe name="drugVitamins" count="1" craft_area="campfire" craft_tool="toolBeaker" tags="learnable">
+            <ingredient name="foodCropBlueberries" count="3"/>
+        </recipe>
+
+        <recipe name="drugVitamins" count="1" craft_area="chemistryStation" tags="learnable,chemStationCrafting">
+            <ingredient name="foodCropBlueberries" count="1"/>
+        </recipe>
     </append>
 </Rinsan>
