@@ -24,6 +24,20 @@
 			</effect_group>
 		</book>
 
+		<!-- *** 2/7 止痛药 -->
+		<book name="perkShainMedicalInstructionPainkiller" parent="skillShainMedicalInstruction" max_level="1" base_skill_point_cost="0" name_key="bookShainMedicalInstructionPainkiller" desc_key="perkShainMedicalInstructionPainkillerDesc" long_desc_key="perkShainMedicalInstructionPainkillerLongDesc">
+			<effect_group>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1" value="1" tags="drugPainkillers"/>
+			</effect_group>
+		</book>
+
+		<!-- *** 3/7 清创工具 -->
+		<book name="perkShainMedicalInstructionDebridementTool" parent="skillShainMedicalInstruction" max_level="1" base_skill_point_cost="0" name_key="bookShainMedicalInstructionDebridementTool" desc_key="perkShainMedicalInstructionDebridementToolDesc" long_desc_key="perkShainMedicalInstructionDebridementToolLongDesc">
+			<effect_group>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1" value="1" tags="medicalDebridementTool"/>
+			</effect_group>
+		</book>
+
 		<!-- *** 7/7 WASTELAND_TREASURES_COMPLETE -->
 		<book name="perkShainMedicalInstructionComplete" parent="skillShainMedicalInstruction" max_level="1" base_skill_point_cost="0" desc_key="perkShainMedicalInstructionCompleteDesc" long_desc_key="perkShainMedicalInstructionCompleteLongDesc">
 			<effect_group>
