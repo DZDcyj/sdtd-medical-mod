@@ -1,72 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
 <configs>
-<append xpath="/items">
-	<item name="medicalRibonsanPanacea">
-		<property name="CustomIcon" value="medicalRibonsanPanacea"/>
-		<property name="DisplayType" value="medicalRibonsanPanacea"/>
-		<property name="HoldType" value="64"/>
-		<property name="Meshfile" value="@:Other/Items/Health/bandage.FBX"/>
-		<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
-		<property name="DescriptionKey" value="medicalRibonsanPanaceaDesc"/>
-		<property name="Material" value="Mcloth"/>
-		<property name="Stacknumber" value="200"/>
-		<property name="UnlockedBy" value="craftingMedical"/>
-		<property name="EconomicValue" value="600"/>
-		<property name="Group" value="Science,Medical,Basics,TCMedical"/>
-		<property class="Action0">
-			<property name="Class" value="Eat"/>
-			<property name="Delay" value="1.0"/>
-			<property name="Sound_start" value="player_bandage"/>
-		</property>
-		<effect_group tiered="false">
-			<!-- 回复生命值 -->
-			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="medicalRegHealthAmount" operation="add" value="10"/>
-			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="medRegHealthIncSpeed" operation="set" value="@medicRegHealthIncreaseSpeed"/>
-			<!-- 启动回复生命值进程，也即是添加一个 Buff -->
-			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
-			<display_value name="foodHealthAmount" value="10"/>
-			<!-- 流血、擦伤、扭伤，一用就灵 -->
-			<!-- 流血 -->
-			<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffInjuryBleeding"/>
-			<!-- 擦伤 -->
-			<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffInjuryAbrasion"/>
-			<!-- 已处理的擦伤 -->
-			<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffInjuryAbrasionTreated"/>
-			<!-- 扭伤的腿/手臂 -->
-			<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffLegSprained"/>
-			<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffArmSprained"/>
-			<display_value name="dStopAbrasionMult" value="1"/>
-			<display_value name="dStopsBleeding" value="1"/>
-			<display_value name="dStopsSprain" value="1"/>
-			<triggered_effect trigger="onSelfSecondaryActionEnd" action="GiveExp" exp="10"/>
-		</effect_group>
-	</item>
+	<append xpath="/items">
+		<!-- 丝氏白药 -->
+		<item name="medicalRibonsanPanacea">
+			<property name="CustomIcon" value="medicalRibonsanPanacea"/>
+			<property name="DisplayType" value="medicalRibonsanPanacea"/>
+			<property name="HoldType" value="64"/>
+			<property name="Meshfile" value="@:Other/Items/Health/bandage.FBX"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="DescriptionKey" value="medicalRibonsanPanaceaDesc"/>
+			<property name="Material" value="Mcloth"/>
+			<property name="Stacknumber" value="200"/>
+			<property name="UnlockedBy" value="craftingMedical"/>
+			<property name="EconomicValue" value="600"/>
+			<property name="Group" value="Science,Medical,Basics,TCMedical"/>
+			<property class="Action0">
+				<property name="Class" value="Eat"/>
+				<property name="Delay" value="1.0"/>
+				<property name="Sound_start" value="player_bandage"/>
+			</property>
+			<effect_group tiered="false">
+				<!-- 回复生命值 -->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="medicalRegHealthAmount" operation="add" value="10"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="medRegHealthIncSpeed" operation="set" value="@medicRegHealthIncreaseSpeed"/>
+				<!-- 启动回复生命值进程，也即是添加一个 Buff -->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
+				<display_value name="foodHealthAmount" value="10"/>
+				<!-- 流血、擦伤、扭伤，一用就灵 -->
+				<!-- 流血 -->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffInjuryBleeding"/>
+				<!-- 擦伤 -->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffInjuryAbrasion"/>
+				<!-- 已处理的擦伤 -->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffInjuryAbrasionTreated"/>
+				<!-- 扭伤的腿/手臂 -->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffLegSprained"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffArmSprained"/>
+				<display_value name="dStopAbrasionMult" value="1"/>
+				<display_value name="dStopsBleeding" value="1"/>
+				<display_value name="dStopsSprain" value="1"/>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="GiveExp" exp="10"/>
+			</effect_group>
+		</item>
 
-	<!-- 社员医疗指导手册 -->
+		<!-- 清创工具 -->
+		<item name="medicalDebridementTool">
+			<property name="CustomIcon" value="medicalDebridementTool"/>
+			<property name="DisplayType" value="medicalDebridementTool"/>
+			<property name="HoldType" value="64"/>
+			<property name="Meshfile" value="@:Other/Items/Health/bandage.FBX"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="DescriptionKey" value="medicalDebridementToolDesc"/>
+			<property name="Material" value="Miron"/>
+			<property name="Stacknumber" value="200"/>
+			<property name="UnlockedBy" value="perkShainMedicalInstructionDebridementTool"/>
+			<property name="EconomicValue" value="100"/>
+			<property name="Group" value="Science,Medical,Basics,TCMedical"/>
+			<property class="Action0">
+				<property name="Class" value="Eat"/>
+				<property name="Delay" value="1.0"/>
+				<property name="Sound_start" value="player_bandage"/>
+				<requirement name="!HasBuff" buff="buffDebridementTool"/>
+				<requirement name="CVarCompare" cvar="infectionCounter" operation="GT" value="0"/>
+			</property>
+			<effect_group tiered="false">
+				<!-- 削减生命值 -->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyStats" stat="Health" operation="add" value="-10"/>
+				<display_value name="foodHealthAmount" value="-10"/>
+				<!-- 提供消炎值 -->
+				<display_value name="dCureInfection" value=".03"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffInfectionAddCurePerc" operation="add" value="3"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffInfectionAddCure"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="PlaySound" sound="player#painsm" play_in_head="true"/>
 
-	<!-- 第一卷：维生素 -->
-	<item name="bookShainMedicalInstructionVitamin">
-	<property name="CustomIcon" value="bookMedicalJournal"/>
-	<property name="Extends" value="bookFiremansAlmanacHeat"/>
-	<property name="DescriptionKey" value="perkShainMedicalInstructionVitaminDesc"/>
-	<property name="Unlocks" value="perkShainMedicalInstructionVitamin"/>
-	<effect_group tiered="false">
-		<requirement name="ProgressionLevel" progression_name="perkShainMedicalInstructionVitamin" operation="Equals" value="0"/>
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="SetProgressionLevel" progression_name="perkShainMedicalInstructionVitamin" level="-1"/>
-			<!-- 以下为完全读完之后的效果 -->
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="SetProgressionLevel" progression_name="perkShainMedicalInstructionVitaminComplete" level="-1">
-			<requirement name="PerksUnlocked" skill_name="skillShainMedicalInstruction" operation="GTE" value="7"/></triggered_effect>
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="PlaySound" sound="read_skillbook_final" play_in_head="true">
-			<requirement name="PerksUnlocked" skill_name="skillShainMedicalInstruction" operation="GTE" value="7"/></triggered_effect>
-	</effect_group>
-	<effect_group tiered="false">
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
-	</effect_group>
-</item>
-</append>
+				<!-- 清创 debuff -->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDebridementTool"/>
+			</effect_group>
+		</item>
 
-<append xpath="/items/item[@name='drugVitamins']">
-	<property name="UnlockedBy" value="perkShainMedicalInstructionVitamin"/>
-</append>
+		<!-- 社员医疗指导手册 -->
+
+		<!-- 第一卷：维生素 -->
+		<item name="bookShainMedicalInstructionVitamin">
+			<property name="CustomIcon" value="bookShainMedicalInstructionVitamin"/>
+			<property name="Extends" value="bookFiremansAlmanacHeat"/>
+			<property name="DescriptionKey" value="perkShainMedicalInstructionVitaminDesc"/>
+			<property name="Unlocks" value="perkShainMedicalInstructionVitamin"/>
+			<effect_group tiered="false">
+				<requirement name="ProgressionLevel" progression_name="perkShainMedicalInstructionVitamin" operation="Equals" value="0"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="SetProgressionLevel" progression_name="perkShainMedicalInstructionVitamin" level="-1"/>
+				<!-- 以下为完全读完之后的效果 -->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="SetProgressionLevel" progression_name="perkShainMedicalInstructionVitaminComplete" level="-1">
+					<requirement name="PerksUnlocked" skill_name="skillShainMedicalInstruction" operation="GTE" value="7"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="PlaySound" sound="read_skillbook_final" play_in_head="true">
+					<requirement name="PerksUnlocked" skill_name="skillShainMedicalInstruction" operation="GTE" value="7"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+		</item>
+
+		<!-- 第二卷：止痛药 -->
+		<item name="bookShainMedicalInstructionPainkiller">
+			<property name="Extends" value="bookShainMedicalInstructionVitamin"/>
+			<property name="DescriptionKey" value="perkShainMedicalInstructionPainkillerDesc"/>
+			<property name="Unlocks" value="perkShainMedicalInstructionPainkiller"/>
+			<effect_group tiered="false">
+				<requirement name="ProgressionLevel" progression_name="perkShainMedicalInstructionPainkiller" operation="Equals" value="0"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="SetProgressionLevel" progression_name="perkShainMedicalInstructionPainkiller" level="-1"/>
+				<!-- 以下为完全读完之后的效果 -->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="SetProgressionLevel" progression_name="perkShainMedicalInstructionPainkillerComplete" level="-1">
+					<requirement name="PerksUnlocked" skill_name="skillShainMedicalInstruction" operation="GTE" value="7"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="PlaySound" sound="read_skillbook_final" play_in_head="true">
+					<requirement name="PerksUnlocked" skill_name="skillShainMedicalInstruction" operation="GTE" value="7"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+		</item>
+
+		<!-- 第三卷：清创工具 -->
+		<item name="bookShainMedicalInstructionDebridementTool">
+			<property name="Extends" value="bookShainMedicalInstructionVitamin"/>
+			<property name="DescriptionKey" value="perkShainMedicalInstructionDebridementToolDesc"/>
+			<property name="Unlocks" value="perkShainMedicalInstructionDebridementTool"/>
+			<effect_group tiered="false">
+				<requirement name="ProgressionLevel" progression_name="perkShainMedicalInstructionDebridementTool" operation="Equals" value="0"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="SetProgressionLevel" progression_name="perkShainMedicalInstructionDebridementTool" level="-1"/>
+				<!-- 以下为完全读完之后的效果 -->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="SetProgressionLevel" progression_name="perkShainMedicalInstructionDebridementToolComplete" level="-1">
+					<requirement name="PerksUnlocked" skill_name="skillShainMedicalInstruction" operation="GTE" value="7"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="PlaySound" sound="read_skillbook_final" play_in_head="true">
+					<requirement name="PerksUnlocked" skill_name="skillShainMedicalInstruction" operation="GTE" value="7"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+		</item>
+	</append>
+
+	<!-- 补充解锁条件 -->
+	<append xpath="/items/item[@name='drugVitamins']">
+		<property name="UnlockedBy" value="perkShainMedicalInstructionVitamin"/>
+	</append>
+
+	<append xpath="/items/item[@name='drugPainkillers']">
+		<property name="UnlockedBy" value="perkShainMedicalInstructionPainkiller"/>
+	</append>
 
 </configs>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configs>
+    <append xpath="/buffs">
+        <buff name="buffDebridementTool" name_key="buffDebridementToolName" description_key="buffDebridementToolDesc" tooltip_key="buffDebridementToolTooltip" icon="ui_game_symbol_medical" icon_color="255,0,0" icon_blink="true">
+            <stack_type value="ignore"/>
+            <duration value="0"/>
+            <display_value value=".debridementToolDurationDisplay"/>
+            <display_value_format value="time"/>
+
+            <effect_group>
+                <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$debridementToolCounter" operation="set" value="300"/>
+                <triggered_effect trigger="onSelfDied" action="RemoveBuff" buff="buffDebridementTool"/>
+                <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$debridementToolCounter" operation="subtract" value="1"/>
+            </effect_group>
+
+            <effect_group name="DisplayDuration">
+                <!-- Handlers for the display -->
+                <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".debridementToolDurationDisplay" operation="set" value="@$debridementToolCounter"/>
+                <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".debridementToolDurationDisplay" operation="set" value="0"/>
+            </effect_group>
+
+            <effect_group>
+                <!-- If counter LTE 0, reset counter, health blockage, and remove buff -->
+                <requirement name="CVarCompare" cvar="$debridementToolCounter" operation="LTE" value="0"/>
+                <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$debridementToolCounter" operation="set" value="0"/>
+                <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDebridementTool"/>
+            </effect_group>
+        </buff>
+    </append>
+</configs>

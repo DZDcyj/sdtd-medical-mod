@@ -1,6 +1,6 @@
 <Rinsan>
     <append xpath="/recipes">
-        <recipe name="medicalRibonsanPanacea" count="1" craft_area="chemistryStation" tags="learnable,chemStationCrafting" >
+        <recipe name="medicalRibonsanPanacea" count="1" craft_area="chemistryStation" tags="learnable,chemStationCrafting">
             <ingredient name="resourceYuccaFibers" count="10"/>
             <ingredient name="resourceCropChrysanthemumPlant" count="1"/>
             <ingredient name="medicalAloeCream" count="1"/>
@@ -41,6 +41,42 @@
 
         <recipe name="drugVitamins" count="1" craft_area="chemistryStation" tags="learnable,chemStationCrafting">
             <ingredient name="foodCropPumpkin" count="1"/>
+        </recipe>
+
+        <!-- 紧急手搓配方、以啤酒喂服菊花、硝酸盐 -->
+        <recipe name="drugPainkillers" count="1" tags="learnable">
+            <ingredient name="resourceCropChrysanthemumPlant" count="3"/>
+            <ingredient name="resourcePotassiumNitratePowder" count="10"/>
+            <ingredient name="foodCornMeal" count="3"/>
+            <ingredient name="drinkJarBeer" count="1"/>
+            <ingredient name="drugVitamins" count="3"/>
+        </recipe>
+
+        <!-- 篝火小作坊勾兑，减少维生素等材料用量 -->
+        <recipe name="drugPainkillers" count="1" craft_area="campfire" craft_tool="toolBeaker" tags="learnable">
+            <ingredient name="resourceCropChrysanthemumPlant" count="2"/>
+            <ingredient name="resourcePotassiumNitratePowder" count="8"/>
+            <ingredient name="foodCornMeal" count="2"/>
+            <ingredient name="drinkJarBeer" count="1"/>
+            <ingredient name="drugVitamins" count="2"/>
+        </recipe>
+
+        <!-- 化学工作站精细制作，将啤酒换为水，玉米粉换做玉米，减少维生素用量，提高产率 -->
+        <recipe name="drugPainkillers" count="1" craft_area="chemistryStation" tags="learnable,chemStationCrafting">
+            <ingredient name="resourceCropChrysanthemumPlant" count="1"/>
+            <ingredient name="resourcePotassiumNitratePowder" count="5"/>
+            <ingredient name="foodCropCorn" count="1"/>
+            <ingredient name="drinkJarBoiledWater" count="1"/>
+            <ingredient name="drugVitamins" count="1"/>
+        </recipe>
+
+        <!-- 紧急清创工具 -->
+        <recipe name="medicalDebridementTool" count="1" tags="learnable">
+            <ingredient name="resourceScrapIron" count="10"/>
+            <ingredient name="resourcePotassiumNitratePowder" count="20"/>
+            <ingredient name="resourceAnimalFat" count="1"/>
+            <ingredient name="drinkJarBoiledWater" count="1"/>
+            <ingredient name="resourceCropChrysanthemumPlant" count="1"/>
         </recipe>
     </append>
 </Rinsan>
