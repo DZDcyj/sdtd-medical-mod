@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xml>
 	<ModInfo>
-		<Name value="丝氏老方" />
-		<Description value="跌打损伤，一用就灵" />
+		<Name value="群友医疗模组" />
+		<Description value="提供一些额外的医疗物资" />
 		<Author value="Rinsan" />
 		<Version value="1.1" />
 		<Website value="http://7daystodie.com" />
