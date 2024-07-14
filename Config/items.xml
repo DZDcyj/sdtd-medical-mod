@@ -3,6 +3,7 @@
 	<append xpath="/items">
 		<!-- 丝氏白药 -->
 		<item name="medicalRibonsanPanacea">
+			<property name="Tags" value="medical,medicalSkill,stopsBleeding"/>
 			<property name="CustomIcon" value="medicalRibonsanPanacea"/>
 			<property name="DisplayType" value="medicalRibonsanPanacea"/>
 			<property name="HoldType" value="64"/>
@@ -22,7 +23,7 @@
 			<effect_group tiered="false">
 				<!-- 回复生命值 -->
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="medicalRegHealthAmount" operation="add" value="10"/>
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="medRegHealthIncSpeed" operation="set" value="@medicRegHealthIncreaseSpeed"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="medRegHealthIncSpeed" operation="set" value="@$medicRegHealthIncreaseSpeed"/>
 				<!-- 启动回复生命值进程，也即是添加一个 Buff -->
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
 				<display_value name="foodHealthAmount" value="10"/>
