@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xml>
-	<ModInfo>
-		<Name value="群友医疗模组" />
-		<Description value="提供一些额外的医疗物资" />
-		<Author value="Rinsan" />
-		<Version value="1.1" />
-		<Website value="http://7daystodie.com" />
-	</ModInfo>
+	<Name value="RinsanMedicalMod" />
+	<DisplayName value="群友医疗模组"/>
+	<Description value="提供一些额外的医疗物资" />
+	<Author value="Rinsan" />
+	<Version value="1.1" />
+	<Website value="http://7daystodie.com" />
 </xml>
