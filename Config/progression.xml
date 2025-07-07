@@ -11,7 +11,7 @@
 
 	<!-- 书大类 -->
 	<append xpath="/progression/skills">
-		<book_group name="skillShainMedicalInstruction" parent="attBooks" name_key="perkShainMedicalInstruction0Name" desc_key="perkShainMedicalInstruction0Desc" long_desc_key="perkBookGroupLongDesc" icon="ui_game_symbol_medical">
+		<book_group name="skillShainMedicalInstruction" parent="attBooks" name_key="perkShainMedicalInstruction0Name" desc_key="perkShainMedicalInstruction0Desc" long_desc_key="perkBookGroupLongDesc" icon="bookShainMedicalInstructionVitamin">
 		</book_group>
 	</append>
 
