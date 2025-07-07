@@ -70,13 +70,13 @@
             <ingredient name="drugVitamins" count="1"/>
         </recipe>
 
-        <!-- 紧急清创工具 -->
+        <!-- 欧润吉 -->
+        <!-- 欧润吉配方：菊花、开水、秋麒麟、硝酸盐粉 -->
         <recipe name="medicalDebridementTool" count="1" tags="learnable">
-            <ingredient name="resourceScrapIron" count="10"/>
-            <ingredient name="resourcePotassiumNitratePowder" count="20"/>
-            <ingredient name="resourceAnimalFat" count="1"/>
-            <ingredient name="drinkJarBoiledWater" count="1"/>
+            <ingredient name="resourceCropGoldenrodPlant" count="1"/>
             <ingredient name="resourceCropChrysanthemumPlant" count="1"/>
+            <ingredient name="drinkJarBoiledWater" count="1"/>
+            <ingredient name="resourcePotassiumNitratePowder" count="20"/>
         </recipe>
     </append>
 </Rinsan>
