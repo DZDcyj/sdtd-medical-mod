@@ -45,4 +45,16 @@
 		</book>
 	</append>
 
+	<!-- 初音未来缓释片解锁条件 -->
+	<append xpath="/progression/perks">
+		<perk name="perkMedicalLevel39" parent="skillMedical" max_level="1" base_skill_point_cost="0" name_key="drugHatsuneMiku" desc_key="drugHatsuneMikuUnlockDesc" long_desc_key="drugHatsuneMikuUnlockLongDesc">
+			<level_requirements level="1">
+				<requirement name="ProgressionLevel" progression_name="perkMedical" operation="GTE" value="39"/>
+			</level_requirements>
+			<effect_group>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1" value="1" tags="drugHatsuneMiku"/>
+			</effect_group>
+		</perk>
+	</append>
+
 </Rinkosanvsky>

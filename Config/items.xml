@@ -144,6 +144,45 @@
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
 			</effect_group>
 		</item>
+
+		<!-- 初音未来缓释片 -->
+		<item name="drugHatsuneMiku">
+			<property name="Tags" value="medical,medicalSkill,fitness"/>
+			<property name="DisplayType" value="drugHatsuneMiku"/>
+			<property name="HoldType" value="16"/>
+			<property name="Meshfile" value="@:Other/Items/Health/pillBottlePrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="EconomicValue" value="1200"/>
+			<property name="Stacknumber" value="10"/>
+			<property name="Group" value="Science,CFChemicals,Medical,TCMedical"/>
+			<property name="SoundPickup" value="drug_painkillers_grab"/>
+			<property name="SoundPlace" value="drug_painkillers_place"/>
+			<property name="UnlockedBy" value="perkMedicalLevel39"/>
+			<property class="Action0">
+				<property name="Class" value="Eat"/>
+				<property name="Delay" value="1.0"/>
+				<property name="Sound_start" value="player_painkillers"/>
+				<requirement name="!HasBuff" buff="buffDrugHatsuneMiku"/>
+			</property>
+			<effect_group tiered="false">
+				<!-- 立即回复39生命值 -->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyStats" stat="Health" operation="add" value="39"/>
+				<display_value name="dInstantHealth" value="39"/>
+				<!-- 水-39 -->
+				<display_value name="$waterAmountAdd" value="-39"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyStats" stat="Water" operation="add" value="-39"/>
+				<!-- 移除脑震荡 -->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffInjuryConcussion"/>
+				<display_value name="dStopsConcussion" value="1"/>
+				<!-- 添加持续效果buff -->
+				<display_value name="dDuration" value="2340"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugHatsuneMikuDuration" operation="add" value="2343"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugHatsuneMikuDuration" operation="set" value="7029">
+					<requirement name="CVarCompare" cvar="$buffDrugHatsuneMikuDuration" operation="GT" value="7029"/></triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugHatsuneMiku"/>
+			</effect_group>
+		</item>
 	</append>
 
 	<!-- 补充解锁条件 -->

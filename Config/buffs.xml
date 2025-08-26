@@ -26,5 +26,39 @@
                 <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDebridementTool"/>
             </effect_group>
         </buff>
+
+		<!-- *** 初音未来缓释片 buff -->
+		<!-- TRIGGERED_BY: Items = drugHatsuneMiku -->
+		<!-- Hatsune Miku sustained release tablet provides stun resistance, stamina boost, and damage reduction. -->
+		<buff name="buffDrugHatsuneMiku" name_key="drugHatsuneMiku" description_key="drugHatsuneMikuDesc" icon="ui_game_symbol_candy_fortitude">
+			<stack_type value="replace"/>
+			<duration value="0"/>
+			<display_value value=".buffDrugHatsuneMikuDisplay"/>
+			<display_value_format value="time"/>
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$buffDrugHatsuneMikuDuration" operation="subtract" value="@$MetabolismDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffDrugHatsuneMikuDisplay" operation="set" value="@$buffDrugHatsuneMikuDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffDrugHatsuneMikuDisplay" operation="divide" value="@$MetabolismDuration"/>
+			</effect_group>
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDrugHatsuneMiku">
+					<requirement name="CVarCompare" cvar="$buffDrugHatsuneMikuDuration" operation="LTE" value="0"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffRemove" action="RemoveCVar" cvar=".buffDrugHatsuneMikuDisplay,$buffDrugHatsuneMikuDuration"/>
+			</effect_group>
+
+			<effect_group>
+				<!-- 39%伤害减免 -->
+				<passive_effect name="GeneralDamageResist" operation="base_add" value="0.39"/>
+				<!-- 抗眩晕效果 -->
+				<passive_effect name="StunResist" operation="base_add" value="1"/>
+				<!-- 体力上限增加39 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="39"/>
+				<!-- 持续水分消耗 -->
+				<passive_effect name="WaterChangeOT" operation="base_subtract" value=".05"/>
+			</effect_group>
+		</buff>
     </append>
 </configs>
