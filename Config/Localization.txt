@@ -27,3 +27,6 @@ perkShainMedicalInstructionCompleteLongDesc,专业医师：你已经是一名合
 buffDebridementToolName,欧润吉恢复期
 buffDebridementToolDesc,欧润吉的感染治疗需要等待一段时间后才能再次进行
 buffDebridementToolTooltip,你最近用过一次欧润吉，需要恢复一段时间之后才能再次使用
+
+drugHatsuneMiku,初音未来缓释片
+drugHatsuneMikuDesc,39 Miku 神力

@@ -78,5 +78,13 @@
             <ingredient name="drinkJarBoiledWater" count="1"/>
             <ingredient name="resourcePotassiumNitratePowder" count="20"/>
         </recipe>
+
+        <!-- 初音未来缓释片 -->
+        <recipe name="drugHatsuneMiku" count="1" craft_area="chemistryStation" craft_time="234" tags="learnable,chemStationCrafting,drugHatsuneMiku">
+            <ingredient name="drugVitamins" count="1"/>
+            <ingredient name="resourcePotassiumNitratePowder" count="50"/>
+            <ingredient name="medicalBloodBag" count="2"/>
+            <ingredient name="foodRottingFlesh" count="20"/>
+        </recipe>
     </append>
 </Rinsan>

@@ -1,30 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <configs>
-    <append xpath="/buffs">
-        <buff name="buffDebridementTool" name_key="buffDebridementToolName" description_key="buffDebridementToolDesc" tooltip_key="buffDebridementToolTooltip" icon="ui_game_symbol_medical" icon_color="255,0,0" icon_blink="true">
-            <stack_type value="ignore"/>
-            <duration value="0"/>
-            <display_value value=".debridementToolDurationDisplay"/>
-            <display_value_format value="time"/>
+	<append xpath="/buffs">
+		<buff name="buffDebridementTool" name_key="buffDebridementToolName" description_key="buffDebridementToolDesc" tooltip_key="buffDebridementToolTooltip" icon="ui_game_symbol_medical" icon_color="255,0,0" icon_blink="true">
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<display_value value=".debridementToolDurationDisplay"/>
+			<display_value_format value="time"/>
 
-            <effect_group>
-                <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$debridementToolCounter" operation="set" value="300"/>
-                <triggered_effect trigger="onSelfDied" action="RemoveBuff" buff="buffDebridementTool"/>
-                <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$debridementToolCounter" operation="subtract" value="1"/>
-            </effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$debridementToolCounter" operation="set" value="300"/>
+				<triggered_effect trigger="onSelfDied" action="RemoveBuff" buff="buffDebridementTool"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$debridementToolCounter" operation="subtract" value="1"/>
+			</effect_group>
 
-            <effect_group name="DisplayDuration">
-                <!-- Handlers for the display -->
-                <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".debridementToolDurationDisplay" operation="set" value="@$debridementToolCounter"/>
-                <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".debridementToolDurationDisplay" operation="set" value="0"/>
-            </effect_group>
+			<effect_group name="DisplayDuration">
+				<!-- Handlers for the display -->
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".debridementToolDurationDisplay" operation="set" value="@$debridementToolCounter"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".debridementToolDurationDisplay" operation="set" value="0"/>
+			</effect_group>
 
-            <effect_group>
-                <!-- If counter LTE 0, reset counter, health blockage, and remove buff -->
-                <requirement name="CVarCompare" cvar="$debridementToolCounter" operation="LTE" value="0"/>
-                <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$debridementToolCounter" operation="set" value="0"/>
-                <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDebridementTool"/>
-            </effect_group>
-        </buff>
-    </append>
+			<effect_group>
+				<!-- If counter LTE 0, reset counter, health blockage, and remove buff -->
+				<requirement name="CVarCompare" cvar="$debridementToolCounter" operation="LTE" value="0"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$debridementToolCounter" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDebridementTool"/>
+			</effect_group>
+		</buff>
+
+		<!-- *** 初音未来缓释片 buff -->
+		<!-- TRIGGERED_BY: Items = drugHatsuneMiku -->
+		<!-- Hatsune Miku sustained release tablet provides stun resistance, stamina boost, and damage reduction. -->
+		<buff name="buffDrugHatsuneMiku" name_key="drugHatsuneMiku" description_key="drugHatsuneMikuDesc" icon="ui_game_symbol_candy_fortitude">
+			<stack_type value="replace"/>
+			<duration value="0"/>
+			<display_value value=".buffDrugHatsuneMikuDisplay"/>
+			<display_value_format value="time"/>
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$buffDrugHatsuneMikuDuration" operation="subtract" value="@$MetabolismDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffDrugHatsuneMikuDisplay" operation="set" value="@$buffDrugHatsuneMikuDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffDrugHatsuneMikuDisplay" operation="divide" value="@$MetabolismDuration"/>
+			</effect_group>
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDrugHatsuneMiku">
+					<requirement name="CVarCompare" cvar="$buffDrugHatsuneMikuDuration" operation="LTE" value="0"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffRemove" action="RemoveCVar" cvar=".buffDrugHatsuneMikuDisplay,$buffDrugHatsuneMikuDuration"/>
+			</effect_group>
+
+			<effect_group>
+				<!-- 39%伤害减免 -->
+				<passive_effect name="GeneralDamageResist" operation="base_add" value="0.39"/>
+				<!-- 抗眩晕效果 -->
+				<passive_effect name="BuffResistance" operation="base_add" value="1" tags="buffInjuryStunned01CHTrigger,buffInjuryStunned00,buffInjuryStunned01,buffInjuryStunned01Shotgun,buffInjuryStunned02,buffInjuryStunned02Shotgun,buffInjuryStunned03,buffInjuryStunned03Shotgun"/>
+				<!-- 持续水分消耗 -->
+				<passive_effect name="WaterChangeOT" operation="base_subtract" value=".05"/>
+			</effect_group>
+		</buff>
+	</append>
+
+	<!-- 需要在上帝模式中移除初音效果 -->
+	<append xpath="/buffs/buff[@name='god']">
+		<effect_group>
+			<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffDrugHatsuneMiku"/>
+		</effect_group>
+	</append>
 </configs>
