@@ -55,7 +55,7 @@
 				<!-- 抗眩晕效果 -->
 				<passive_effect name="StunResist" operation="base_add" value="1"/>
 				<!-- 体力上限增加39 -->
-				<passive_effect name="StaminaMax" operation="base_add" value="39"/>
+				<passive_effect name="StaminaMax" operation="pbase_add" value="39"/>
 				<!-- 持续水分消耗 -->
 				<passive_effect name="WaterChangeOT" operation="base_subtract" value=".05"/>
 			</effect_group>

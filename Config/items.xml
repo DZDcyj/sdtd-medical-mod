@@ -175,6 +175,8 @@
 				<!-- 移除脑震荡 -->
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffInjuryConcussion"/>
 				<display_value name="dStopsConcussion" value="1"/>
+				<!-- 抗眩晕效果显示 -->
+				<display_value name="dStunResist" value="1"/>
 				<!-- 添加持续效果buff -->
 				<display_value name="dDuration" value="2340"/>
 				<display_value name="dStaminaMax" value="39"/>
