@@ -158,7 +158,7 @@
 			<property name="Group" value="Science,CFChemicals,Medical,TCMedical"/>
 			<property name="SoundPickup" value="drug_painkillers_grab"/>
 			<property name="SoundPlace" value="drug_painkillers_place"/>
-			<property name="UnlockedBy" value="perkMedicalLevel39"/>
+			<property name="UnlockedBy" value="craftingMedical"/>
 			<property class="Action0">
 				<property name="Class" value="Eat"/>
 				<property name="Delay" value="1.0"/>
@@ -177,6 +177,7 @@
 				<display_value name="dStopsConcussion" value="1"/>
 				<!-- 添加持续效果buff -->
 				<display_value name="dDuration" value="2340"/>
+				<display_value name="dStaminaMax" value="39"/>
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugHatsuneMikuDuration" operation="add" value="2343"/>
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugHatsuneMikuDuration" operation="set" value="7029">
 					<requirement name="CVarCompare" cvar="$buffDrugHatsuneMikuDuration" operation="GT" value="7029"/></triggered_effect>

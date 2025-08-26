@@ -29,6 +29,4 @@ buffDebridementToolDesc,欧润吉的感染治疗需要等待一段时间后才�
 buffDebridementToolTooltip,你最近用过一次欧润吉，需要恢复一段时间之后才能再次使用
 
 drugHatsuneMiku,初音未来缓释片
-drugHatsuneMikuDesc,特制的高效医疗药品，能够提供全方位的身体强化效果。回复39生命值，水分-39，移除脑震荡并提供抗眩晕效果，体力上限增加39，伤害减免39%，持续39分钟。
-drugHatsuneMikuUnlockDesc,解锁初音未来缓释片制作配方
-drugHatsuneMikuUnlockLongDesc,高级医疗技术：通过精密的化学合成技术，制作出这种强效的医疗药品，需要医疗等级达到39级才能掌握其制作方法。
+drugHatsuneMikuDesc,39 Miku 神力
