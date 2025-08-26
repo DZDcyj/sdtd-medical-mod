@@ -153,8 +153,8 @@
 			<property name="Meshfile" value="@:Other/Items/Health/pillBottlePrefab.prefab"/>
 			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
 			<property name="Material" value="Morganic"/>
-			<property name="EconomicValue" value="1200"/>
-			<property name="Stacknumber" value="10"/>
+			<property name="EconomicValue" value="3939"/>
+			<property name="Stacknumber" value="6000"/>
 			<property name="Group" value="Science,CFChemicals,Medical,TCMedical"/>
 			<property name="SoundPickup" value="drug_painkillers_grab"/>
 			<property name="SoundPlace" value="drug_painkillers_place"/>
