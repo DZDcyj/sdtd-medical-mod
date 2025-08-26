@@ -177,13 +177,16 @@
 				<display_value name="dStopsConcussion" value="1"/>
 				<!-- 抗眩晕效果显示 -->
 				<display_value name="dStunResist" value="1"/>
+				<!-- 体力上限增加39 -->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".foodStaminaBonusAdd" operation="add" value="39"/>
 				<!-- 添加持续效果buff -->
 				<display_value name="dDuration" value="2340"/>
-				<display_value name="dStaminaMax" value="39"/>
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugHatsuneMikuDuration" operation="add" value="2343"/>
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugHatsuneMikuDuration" operation="set" value="7029">
-					<requirement name="CVarCompare" cvar="$buffDrugHatsuneMikuDuration" operation="GT" value="7029"/></triggered_effect>
+					<requirement name="CVarCompare" cvar="$buffDrugHatsuneMikuDuration" operation="GT" value="7029"/>
+				</triggered_effect>
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugHatsuneMiku"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
 			</effect_group>
 		</item>
 	</append>
