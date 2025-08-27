@@ -177,6 +177,8 @@
 				<display_value name="dStopsConcussion" value="1"/>
 				<!-- 抗眩晕效果显示 -->
 				<display_value name="dStunResist" value="1"/>
+				<!-- 减伤提示 -->
+				<display_value name="dHealthLoss" value=".39"/>
 				<!-- 体力上限增加39 -->
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".foodStaminaBonusAdd" operation="add" value="39"/>
 				<!-- 添加持续效果buff -->

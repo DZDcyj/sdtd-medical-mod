@@ -14,6 +14,7 @@
 		</item_display_info>
 
 		<item_display_info display_type="drugHatsuneMiku" display_group="groupConsumables">
+			<display_entry name="dHealthLoss" title_key="statHealthLoss" display_type="Percent" display_leading_plus="true"/>
 			<display_entry name="dInstantHealth" title_key="statHealthAmount"/>
 			<display_entry name="$waterAmountAdd" title_key="statWaterAmount"/>
 			<display_entry name="dStopsConcussion" title_key="statStopsConcussion" display_type="Percent"/>
